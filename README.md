@@ -8,9 +8,9 @@ PM> Install-Package MpzMail.Api
 
 ###Example
 ```cs
-IXmlParser parser = new DefaultXmlParser();
+IXmlParser xmlParser = new DefaultXmlParser();
 IHttpClient httpClient = new DefaultHttpClient();
-IMpzWrapper wrapper = new MpzWrapper(parser, httpClient, "00000-apikey", "https://mpzmail.com/api/v3.0/");
+IMpzWrapper wrapper = new MpzWrapper(xmlParser, httpClient, "your-apikey", "https://mpzmail.com/api/v3.0/");
 
 var campaigns = wrapper.GetCampaigns();
 ```
