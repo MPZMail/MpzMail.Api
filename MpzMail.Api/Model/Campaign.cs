@@ -9,27 +9,29 @@ namespace MpzMail.Api.Model
         public int Id { get; set; }
         [XmlElement("campaignName")]
         public string Name { get; set; }
+
+        #region Dates
         [XmlIgnore]
         public DateTime CreateDate { get; set; }
-        [XmlIgnore]
-        public DateTime StartDate { get; set; }
         [XmlElement("dateCreated")]
         public string CreateDateString {
             get { return this.CreateDate.ToString("yyyy-MM-dd HH:mm"); }
             set { this.CreateDate = DateTime.Parse(value);  }
         }
+        [XmlIgnore]
+        public DateTime StartDate { get; set; }
+        [XmlElement("startDate")]
+        public string StartDateString
+        {
+            get { return this.StartDate.ToString("yyyy-MM-dd HH:mm"); }
+            set { this.StartDate = DateTime.Parse(value); }
+        }
+        #endregion
 
         [XmlElement("sentFrom")]
         public string SentFrom { get; set; }
         [XmlElement("subject")]
         public string Subject { get; set; }
-
-        [XmlElement("startDate")]
-        public string startDate {
-            get { return this.StartDate.ToString("yyyy-MM-dd HH:mm"); }
-            set { this.StartDate = DateTime.Parse(value); }
-        }
-
         [XmlElement("status")]
         public CampaignStatus Status { get; set; }
         [XmlElement("groupID")]
