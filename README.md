@@ -1,9 +1,18 @@
 #MpzMail C# API
 
-**Example**
+Install-Package MpzMail.Api
 
-    IXmlParser parser = new DefaultXmlParser();
-    IHttpClient httpClient = new DefaultHttpClient();
-    IMpzWrapper wrapper = new MpzWrapper(parser, httpClient, "00000-apikey", "https://mpzmail.com/api/v3.0/");
+###nuget
+The package is available on [nuget](https://www.nuget.org/packages/MpzMail.Api/)
+```
+PM> Install-Package MpzMail.Api
+```
 
-    var campaigns = wrapper.GetCampaigns();
+###Example
+```cs
+IXmlParser parser = new DefaultXmlParser();
+IHttpClient httpClient = new DefaultHttpClient();
+IMpzWrapper wrapper = new MpzWrapper(parser, httpClient, "00000-apikey", "https://mpzmail.com/api/v3.0/");
+
+var campaigns = wrapper.GetCampaigns();
+```
