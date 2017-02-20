@@ -65,7 +65,7 @@ namespace MpzMail.Api
             return mailingResult;
         }
 
-        public CampaignResult GetCampaignsWithFilter(DateFilter filter)
+        public CampaignResult GetCampaigns(DateFilter filter)
         {
             if (filter == null)
             {

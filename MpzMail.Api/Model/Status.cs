@@ -9,6 +9,6 @@ namespace MpzMail.Api.Model
         [XmlEnum("0")]
         Successful = 0,
         [XmlEnum("1")]
-        Error = 1,
+        Error = 1
     }
 }

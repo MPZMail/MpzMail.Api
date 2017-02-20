@@ -9,7 +9,7 @@ namespace MpzMail.Api.Contract
         #region Campaigns
         CampaignAddResult AddCampaign(CampaignAddRequest campaignToAdd);
         CampaignResult GetCampaigns();
-        CampaignResult GetCampaignsWithFilter(DateFilter filter);
+        CampaignResult GetCampaigns(DateFilter filter);
         CampaignResult GetCampaign(int campaignId);
         CampaignSubscriberResult GetOpenedEmails(int campaignId);
         CampaignSubscriberResult GetOpenedEmails(int campaignId, DateFilter filter);
