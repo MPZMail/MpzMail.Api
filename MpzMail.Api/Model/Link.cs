@@ -6,6 +6,8 @@ namespace MpzMail.Api.Model
     [XmlRoot("linkClicked")]
     public class Link
     {
+        [XmlIgnore]
+        public DateTime ClickDate { get; set; }
         [XmlElement("subscriberID")]
         public int SubscriberId { get; set; }
         [XmlElement("firstName")]
@@ -17,7 +19,10 @@ namespace MpzMail.Api.Model
         [XmlElement("groupID")]
         public int GroupId { get; set; }
         [XmlElement("dateClicked")]
-        public string ClickDate { get; set; }
+        public string ClickDateString {
+            get { return this.ClickDate.ToString("yyyy-MM-dd HH:mm"); }
+            set { this.ClickDate = DateTime.Parse(value); }
+        }
         [XmlElement("urlClicked")]
         public string ClickUrl { get; set; }
         [XmlElement("trackingType")]

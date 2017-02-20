@@ -1,9 +1,12 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 
 namespace MpzMail.Api.Model
 {
     public class SubscriberListResultModel
     {
+        [XmlIgnore]
+        public DateTime CreateDate { get; set; }
         [XmlElement("subscriberID")]
         public int Id { get; set; }
         [XmlElement("firstName")]
@@ -15,7 +18,10 @@ namespace MpzMail.Api.Model
         [XmlElement("email")]
         public string Email { get; set; }
         [XmlElement("dateAdded")]
-        public string CreateDate { get; set; }
+        public string CreateDateString {
+            get { return this.CreateDate.ToString("yyyy-MM-dd HH:mm"); }
+            set { this.CreateDate = DateTime.Parse(value); }
+        }
         [XmlElement("customField1")]
         public string FirstCustomField { get; set; }
         [XmlElement("customField2")]

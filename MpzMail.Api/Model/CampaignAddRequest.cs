@@ -1,4 +1,5 @@
 ﻿using MpzMail.Api.Model.Base;
+using System;
 using System.Xml.Serialization;
 
 namespace MpzMail.Api.Model
@@ -6,7 +7,8 @@ namespace MpzMail.Api.Model
     [XmlRoot("xml")]
     public class CampaignAddRequest : BaseRequest
     {
-        private string _startDate;
+        [XmlIgnore]
+        public DateTime StartDate { get; set; }
         [XmlElement("groupID")]
         public int GroupId { get; set; }
         [XmlAttribute("segmentID")]
@@ -26,7 +28,10 @@ namespace MpzMail.Api.Model
         [XmlElement("subject")]
         public string Subject { get; set; }
         [XmlElement("startDate")]
-        public string StartDate { get; set; }
+        public string StartDateString {
+            get { return this.StartDate.ToString("yyyy-MM-dd HH:mm"); }
+            set { this.StartDate = DateTime.Parse(value); }
+        }
         [XmlElement("includeFooter")]
         public IncludeFooter IncludeFooter { get; set; }
     }

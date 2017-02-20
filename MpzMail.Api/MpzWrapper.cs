@@ -84,12 +84,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.FromDate = filter.FromDate.Value;
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-DD hh:mm");
+                request.ToDate = filter.ToDate.Value;
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -174,12 +174,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.FromDate = filter.FromDate.Value;
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.ToDateString = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -246,12 +246,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.FromDateString = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.ToDateString = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -313,12 +313,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.FromDate = filter.FromDate.Value;
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.ToDateString = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -380,12 +380,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.FromDate = filter.FromDate.Value;
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.ToDateString = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -593,8 +593,15 @@ namespace MpzMail.Api
 
             if (filter != null)
             {
-                request.StartDate = filter.FromDate;
-                request.EndDate = filter.ToDate;
+                if (filter.FromDate.HasValue)
+                {
+                    request.StartDate = filter.FromDate.Value;
+                }
+
+                if (filter.ToDate.HasValue)
+                {
+                    request.EndDate = filter.ToDate.Value;
+                }
             }
 
             var url = $"{this._baseUrl}/subscribers/listUnsubscribers/";
