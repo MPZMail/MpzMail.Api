@@ -914,5 +914,30 @@ namespace MpzMail.Api
             return segmentResult;
         }
         #endregion
+
+        #region Customers
+        public CustomerResult GetCustomers()
+        {
+            var url = $"{this._baseUrl}/account/getCustomers/";
+            var request = new BaseRequest
+            {
+                ApiKey = this._apiKey
+            };
+
+            var xmlRequest = this._parser.Serialize(request);
+            var httpResponse = this._httpClient.Request(url, xmlRequest);
+            if (httpResponse.Status != HttpStatus.Successful)
+            {
+                return new CustomerResult
+                {
+                    Status = Status.Error,
+                    Message = "Http error"
+                };
+            }
+
+            var customerResult = this._parser.Deserialize<CustomerResult>(httpResponse.Result);
+            return customerResult;
+        }
+        #endregion
     }
 }

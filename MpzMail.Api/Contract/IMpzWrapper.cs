@@ -50,5 +50,9 @@ namespace MpzMail.Api.Contract
         GroupDeleteGroupResult DeleteGroup(string groupId);
         SegmentListResult GetSegments(string groupId);
         #endregion
+
+        #region Customers
+        CustomerResult GetCustomers();
+        #endregion
     }
 }
