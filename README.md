@@ -1,7 +1,5 @@
 #MpzMail C# API
 
-Install-Package MpzMail.Api
-
 ###nuget
 The package is available on [nuget](https://www.nuget.org/packages/MpzMail.Api/)
 ```
