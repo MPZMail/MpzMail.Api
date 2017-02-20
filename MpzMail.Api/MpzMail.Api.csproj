@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B063E07-8D3B-4FAA-BB34-90C70E5F7460}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MpzMail.Api</RootNamespace>
+    <AssemblyName>MpzMail.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\ActiveState.cs" />
+    <Compile Include="Model\Base\BaseResult.cs" />
+    <Compile Include="Model\CampaignStatus.cs" />
+    <Compile Include="Model\DateModifier.cs" />
+    <Compile Include="Model\DateSegmentFieldType.cs" />
+    <Compile Include="Model\Group.cs" />
+    <Compile Include="Model\GroupAddRequest.cs" />
+    <Compile Include="Model\GroupAddResult.cs" />
+    <Compile Include="Model\GroupDeleteRequest.cs" />
+    <Compile Include="Model\GroupDeleteGroupResult.cs" />
+    <Compile Include="Model\GroupListResult.cs" />
+    <Compile Include="Model\IncludeFooter.cs" />
+    <Compile Include="Model\ISegmentField.cs" />
+    <Compile Include="Model\NumberAndStringModifier.cs" />
+    <Compile Include="Model\Segment.cs" />
+    <Compile Include="Model\DateSegmentField.cs" />
+    <Compile Include="Model\NumberTextSegmentFieldType.cs" />
+    <Compile Include="Model\SegmentListRequest.cs" />
+    <Compile Include="Model\SegmentListResult.cs" />
+    <Compile Include="Model\SegmentRule.cs" />
+    <Compile Include="Model\SubscriberBulkAddResult.cs" />
+    <Compile Include="Model\SubscriberBulkImportResult.cs" />
+    <Compile Include="Model\SubscriberInternalBulkImportResult.cs" />
+    <Compile Include="Model\FileResult.cs" />
+    <Compile Include="Model\InternalJob.cs" />
+    <Compile Include="Model\Job.cs" />
+    <Compile Include="Model\JobStatus.cs" />
+    <Compile Include="Model\ReturnAllFields.cs" />
+    <Compile Include="Model\SubscriberBulkAddRequest.cs" />
+    <Compile Include="Model\SubscriberBulkQueryRequest.cs" />
+    <Compile Include="Model\SubscriberListResultModel.cs" />
+    <Compile Include="Model\SubscriberFilter.cs" />
+    <Compile Include="Model\FileExtension.cs" />
+    <Compile Include="Model\FileRequest.cs" />
+    <Compile Include="Model\Form.cs" />
+    <Compile Include="Model\FormResult.cs" />
+    <Compile Include="Model\FormType.cs" />
+    <Compile Include="Model\Newsletter.cs" />
+    <Compile Include="Model\NewsletterAddRequest.cs" />
+    <Compile Include="Model\BounceType.cs" />
+    <Compile Include="Model\CampaignAddRequest.cs" />
+    <Compile Include="Model\Campaign.cs" />
+    <Compile Include="Model\Base\BaseRequest.cs" />
+    <Compile Include="Model\DateFilter.cs" />
+    <Compile Include="Model\CampaignResult.cs" />
+    <Compile Include="Model\CampaignAddResult.cs" />
+    <Compile Include="Model\HttpResult.cs" />
+    <Compile Include="Model\HttpStatus.cs" />
+    <Compile Include="Model\Link.cs" />
+    <Compile Include="Model\LinkFilter.cs" />
+    <Compile Include="Model\LinkRequest.cs" />
+    <Compile Include="Model\LinkResult.cs" />
+    <Compile Include="Model\CampaignRequest.cs" />
+    <Compile Include="Model\NewsletterAddResult.cs" />
+    <Compile Include="Model\NewsletterListResult.cs" />
+    <Compile Include="Model\NewsletterUpdloadImageRequest.cs" />
+    <Compile Include="Model\NewsletterUploadImageResult.cs" />
+    <Compile Include="Model\Status.cs" />
+    <Compile Include="Model\CampaignSubscriber.cs" />
+    <Compile Include="Model\CampaignSubscriberResult.cs" />
+    <Compile Include="Model\SubscriberListRequest.cs" />
+    <Compile Include="Model\SubscriberListResult.cs" />
+    <Compile Include="Model\SubscriberAddRequestModel.cs" />
+    <Compile Include="Model\SubscriberAddRequest.cs" />
+    <Compile Include="Model\SubscriberAddResultModel.cs" />
+    <Compile Include="Model\SubscriberAddResult.cs" />
+    <Compile Include="Model\SubscriberSortField.cs" />
+    <Compile Include="Model\SubscriberSortOrder.cs" />
+    <Compile Include="Model\SubscriberUnsubscribeRequest.cs" />
+    <Compile Include="Model\TrackingType.cs" />
+    <Compile Include="Model\Unsubscriber.cs" />
+    <Compile Include="Model\UnsubscriberListRequest.cs" />
+    <Compile Include="Model\UnsubscriberListResult.cs" />
+    <Compile Include="Model\UnsubscriberResult.cs" />
+    <Compile Include="Model\SubscriberUpdateRequest.cs" />
+    <Compile Include="MpzWrapper.cs" />
+    <Compile Include="DefaultHttpClient.cs" />
+    <Compile Include="Contract\IMpzWrapper.cs" />
+    <Compile Include="Contract\IHttpClient.cs" />
+    <Compile Include="Contract\IXmlParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DefaultXmlParser.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
