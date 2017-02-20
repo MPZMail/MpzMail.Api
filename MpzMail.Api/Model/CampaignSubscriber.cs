@@ -5,6 +5,8 @@ namespace MpzMail.Api.Model
 {
     public class CampaignSubscriber
     {
+        [XmlIgnore]
+        public DateTime LastActionDate { get; set; }
         [XmlElement("subscriberID")]
         public int SubscriberId { get; set; }
         [XmlElement("firstName")]
@@ -18,7 +20,10 @@ namespace MpzMail.Api.Model
         [XmlElement("companyName")]
         public string CompanyName { get; set; }
         [XmlElement("lastAction")]
-        public string LastActionDate { get; set; }
+        public string LastActionDateString {
+            get { return this.LastActionDate.ToString("yyyy-MM-dd HH:mm"); }
+            set { this.LastActionDate = DateTime.Parse(value); }
+        }
         [XmlElement("bindID")]
         public int BindId { get; set; }
         [XmlElement("customField1")]

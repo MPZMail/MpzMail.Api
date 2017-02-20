@@ -5,12 +5,17 @@ namespace MpzMail.Api.Model
 {
     public class Form
     {
+        [XmlIgnore]
+        public DateTime CreateDate { get; set; }
         [XmlElement("formID")]
         public int Id { get; set; }
         [XmlElement("groupID")]
         public int GroupId { get; set; }
         [XmlElement("dateCreated")]
-        public string CreateDate { get; set; }
+        public string CreateDateString {
+            get { return this.CreateDate.ToString("yyyy-MM-dd HH:mm"); }
+            set { this.CreateDate = DateTime.Parse(value); }
+        }
         [XmlElement("formTitle")]
         public string Title { get; set; }
         [XmlElement("formHtml")]

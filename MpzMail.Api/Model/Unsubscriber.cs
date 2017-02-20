@@ -5,6 +5,8 @@ namespace MpzMail.Api.Model
 {
     public class Unsubscriber
     {
+        [XmlIgnore]
+        public DateTime UnsubscribeDate { get; set; }
         [XmlElement("subscriberID")]
         public int SubscriberId { get; set; }
         [XmlElement("groupID")]
@@ -18,6 +20,9 @@ namespace MpzMail.Api.Model
         [XmlElement("email")]
         public string Email { get; set; }
         [XmlElement("unsubscribedDate")]
-        public string UnsubscribedDate { get; set; }
+        public string UnsubscribeDateString {
+            get { return this.UnsubscribeDate.ToString("yyyy-MM-dd HH:mm"); }
+            set { this.UnsubscribeDate = DateTime.Parse(value); }
+        }
     }
 }
