@@ -18,6 +18,6 @@ namespace MpzMail.Api.Model
         [XmlElement("email")]
         public string Email { get; set; }
         [XmlElement("unsubscribedDate")]
-        public DateTime UnsubscribedDate { get; set; }
+        public string UnsubscribedDate { get; set; }
     }
 }

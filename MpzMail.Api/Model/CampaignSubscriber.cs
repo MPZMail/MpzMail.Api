@@ -18,7 +18,7 @@ namespace MpzMail.Api.Model
         [XmlElement("companyName")]
         public string CompanyName { get; set; }
         [XmlElement("lastAction")]
-        public DateTime LastActionDate { get; set; }
+        public string LastActionDate { get; set; }
         [XmlElement("bindID")]
         public int BindId { get; set; }
         [XmlElement("customField1")]

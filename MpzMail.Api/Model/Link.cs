@@ -17,7 +17,7 @@ namespace MpzMail.Api.Model
         [XmlElement("groupID")]
         public int GroupId { get; set; }
         [XmlElement("dateClicked")]
-        public DateTime ClickDate { get; set; }
+        public string ClickDate { get; set; }
         [XmlElement("urlClicked")]
         public string ClickUrl { get; set; }
         [XmlElement("trackingType")]
