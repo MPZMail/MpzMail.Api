@@ -40,7 +40,7 @@ namespace MpzMail.Api
                     };
                 }
 
-                if (task.Result.StatusCode == HttpStatusCode.OK)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var responseTask = task.Result.Content.ReadAsStringAsync();
                     responseTask.Wait();

@@ -174,12 +174,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value.ToString("YYYY-MM-DD hh:mm");
+                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value.ToString("YYYY-MM-DD hh:mm");
+                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -246,12 +246,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value;
+                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value;
+                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -313,12 +313,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value.ToString("YYYY-MM-DD hh:mm");
+                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value.ToString("YYYY-MM-DD hh:mm");
+                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -380,12 +380,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDate = filter.FromDate.Value.ToString("YYYY-MM-DD hh:mm");
+                request.FromDate = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDate = filter.ToDate.Value.ToString("YYYY-MM-DD hh:mm");
+                request.ToDate = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
             }
 
             var xmlRequest = this._parser.Serialize(request);

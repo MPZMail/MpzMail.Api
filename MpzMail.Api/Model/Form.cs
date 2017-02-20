@@ -10,7 +10,7 @@ namespace MpzMail.Api.Model
         [XmlElement("groupID")]
         public int GroupId { get; set; }
         [XmlElement("dateCreated")]
-        public DateTime CreateDate { get; set; }
+        public string CreateDate { get; set; }
         [XmlElement("formTitle")]
         public string Title { get; set; }
         [XmlElement("formHtml")]

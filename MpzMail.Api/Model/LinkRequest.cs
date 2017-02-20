@@ -12,8 +12,8 @@ namespace MpzMail.Api.Model
         [XmlElement("trackingType")]
         public TrackingType TrackingType { get; set; }
         [XmlElement("fromDate")]
-        public DateTime FromDate { get; set; }
+        public string FromDate { get; set; }
         [XmlElement("toDate")]
-        public DateTime ToDate { get; set; }
+        public string ToDate { get; set; }
     }
 }
