@@ -23,6 +23,36 @@ namespace MpzMail.Api.UnitTest
         }
 
         [TestMethod]
+        [DeploymentItem("RetrieveCampaignResult.xml")]
+        public void DeserializeRetrieveCampaignResult()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var xml = File.ReadAllText("RetrieveCampaignResult.xml");
+            var result = xmlParser.Deserialize<CampaignRetrieveResult>(xml);
+            Assert.AreEqual(Status.Successful, result.Status);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("success", result.Message);
+            var campaign = result.Campaign;
+            Assert.IsNotNull(campaign);
+            Assert.AreEqual(1234, campaign.Id);
+            Assert.AreEqual("Sample Campaign", campaign.Name);
+            Assert.AreEqual(new DateTime(2014, 6, 1, 11, 0, 0), campaign.CreateDate);
+            Assert.AreEqual("Test User", campaign.SentFrom);
+            Assert.AreEqual("My Sample Campaign", campaign.Subject);
+            Assert.AreEqual(new DateTime(2014, 6, 2, 12, 0, 0), campaign.StartDate);
+            Assert.AreEqual(CampaignStatus.Complete, campaign.Status);
+            Assert.AreEqual(1314, campaign.GroupId);
+            Assert.AreEqual("my@emailaddress.com", campaign.EmailFrom);
+            Assert.AreEqual(12, campaign.TotalRecipients);
+            Assert.AreEqual(3, campaign.Opened);
+            Assert.AreEqual(2, campaign.Clicks);
+            Assert.AreEqual(1, campaign.Unsubscribers);
+            Assert.AreEqual(2, campaign.Bounced);
+            Assert.AreEqual(2131, campaign.NewsletterId);
+            Assert.AreEqual("21asvasvasv7as*V&VSA*V&ASVcsacascasc31", campaign.Newsletter);
+        }
+
+        [TestMethod]
         [DeploymentItem("CampaignResult.xml")]
         public void DeserializeCampaignResult()
         {
@@ -369,6 +399,48 @@ namespace MpzMail.Api.UnitTest
             Assert.AreEqual("124", second.Id);
             Assert.AreEqual(113, second.SubscriberCount);
             Assert.AreEqual(new DateTime(2014, 5, 3, 12, 1, 0), second.CreateDate);
+        }
+
+        [TestMethod]
+        [DeploymentItem("DeleteGroupResult.xml")]
+        public void DeserializeDeleteGroupResult()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var xml = File.ReadAllText("DeleteGroupResult.xml");
+            var result = xmlParser.Deserialize<GroupDeleteGroupResult>(xml);
+            Assert.AreEqual(Status.Successful, result.Status);
+            Assert.AreEqual("Success", result.Message);
+            Assert.AreEqual("1234", result.GroupId);
+        }
+
+        [TestMethod]
+        [DeploymentItem("ViewSegmentsResult.xml")]
+        public void DeserializeViewSegmentsResult()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var xml = File.ReadAllText("ViewSegmentsResult.xml");
+            var result = xmlParser.Deserialize<SegmentListResult>(xml);
+            Assert.AreEqual(Status.Successful, result.Status);
+            Assert.AreEqual("Success", result.Message);
+            Assert.AreEqual(2, result.SegmentCount);
+            Assert.AreEqual(2, result.Segments.Count);
+            var first = result.Segments.FirstOrDefault();
+            Assert.IsNotNull(first);
+            Assert.AreEqual(122, first.Id);
+            Assert.AreEqual("Test Segment 1", first.Name);
+            var second = result.Segments.ElementAt(1);
+            Assert.IsNotNull(second);
+            Assert.AreEqual(123, second.Id);
+            Assert.AreEqual("Test Segment 2", second.Name);
+        }
+
+        [TestMethod]
+        [DeploymentItem("AddSegmentResult.xml")]
+        public void DeserializeAddSegmentResult()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            //var xml = File.ReadAllText("AddSegmentResult.xml");
+            //var result = xmlParser.Deserialize<Segmentre>
         }
     }
 }

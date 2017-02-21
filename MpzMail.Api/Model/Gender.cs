@@ -9,6 +9,8 @@ namespace MpzMail.Api.Model
 {
     public enum Gender
     {
+        [XmlEnum("Other")]
+        Other,
         [XmlEnum("Male")]
         Male,
         [XmlEnum("Female")]

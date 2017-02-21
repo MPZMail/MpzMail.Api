@@ -75,6 +75,9 @@
     <Content Include="CampaignResult.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="DeleteGroupResult.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ListSubscribersResult.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -84,7 +87,9 @@
     <Content Include="QueryBulkResult.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="RetrieveCampaignResult.xml" />
+    <Content Include="RetrieveCampaignResult.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="UpdateSubscriberResult.xml" />
     <Content Include="ViewBouncedEmailsResult.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -102,6 +107,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ViewOpenedEmailsResult.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ViewSegmentsResult.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ViewSignUpFormsResult.xml">
