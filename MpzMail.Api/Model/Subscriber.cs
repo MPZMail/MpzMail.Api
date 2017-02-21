@@ -29,6 +29,8 @@ namespace MpzMail.Api.Model
         public string PostalCode { get; set; }
         [XmlElement("dateOfBirth")]
         public DateTime DateOfBirth { get; set; }
+        [XmlElement("gender")]
+        public Gender Gender { get; set; }
         [XmlElement("isActive")]
         public ActiveState Active { get; set; }
 
@@ -57,7 +59,7 @@ namespace MpzMail.Api.Model
 
         public override string ToString()
         {
-            return $"{this.Email},{this.FirstName},{this.LastName},{this.CompanyName},{this.HouseNumber},{this.FirstAddress},{this.SecondAddress},{this.City},{this.County},{this.County},{this.PostalCode},{this.DateOfBirth.ToString()},{this.CustomField1},{this.CustomField2},{this.CustomField3},{this.CustomField4},{this.CustomField5},{this.CustomField6}{this.CustomField7},{this.CustomField8},{this.CustomField9},{this.CustomField10}";
+            return $"{this.Email},{this.FirstName},{this.LastName},{this.CompanyName},{this.HouseNumber},{this.FirstAddress},{this.SecondAddress},{this.City},{this.County},{this.County},{this.PostalCode},{this.DateOfBirth.ToString()},{this.Gender.ToString()},{this.CustomField1},{this.CustomField2},{this.CustomField3},{this.CustomField4},{this.CustomField5},{this.CustomField6}{this.CustomField7},{this.CustomField8},{this.CustomField9},{this.CustomField10}";
         }
     }
 }
