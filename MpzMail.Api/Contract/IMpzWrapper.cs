@@ -10,7 +10,7 @@ namespace MpzMail.Api.Contract
         CampaignAddResult AddCampaign(CampaignAddRequest campaignToAdd);
         CampaignResult GetCampaigns();
         CampaignResult GetCampaigns(DateFilter filter);
-        CampaignResult GetCampaign(int campaignId);
+        CampaignRetrieveResult GetCampaign(int campaignId);
         CampaignSubscriberResult GetOpenedEmails(int campaignId);
         CampaignSubscriberResult GetOpenedEmails(int campaignId, DateFilter filter);
         LinkResult GetClickedLinks(int campaignId);
@@ -32,7 +32,7 @@ namespace MpzMail.Api.Contract
         #endregion
 
         #region Subscribers
-        SubscriberAddResult AddSubscribers(int groupId, bool? returnCustomFields, List<SubscriberAddRequestModel> subscribersToAdd);
+        SubscriberAddResult AddSubscribers(int groupId, bool? returnCustomFields, List<Subscriber> subscribers);
         SubscriberListResult GetSubscribers(int groupId, SubscriberFilter filter);
         UnsubscriberListResult ListUnsubscribers(int groupId, DateFilter filter);
         BaseResult UpdateSubscriber(int groupId, int subscriberId, string firstName, string lastName, string companyName);
@@ -40,7 +40,7 @@ namespace MpzMail.Api.Contract
         BaseResult UnsubscribeSubscriberFromAllGroups(int id);
         BaseResult UnsubscribeSubscriberFromSpecificGroup(string emailAddress, int groupId, ReturnAllFields returnWithCustomFields);
         BaseResult UnsubscribeSubscriberFromSpecificGroup(int Id, int groupId, ReturnAllFields returnWithCustomFields);
-        SubscriberBulkAddResult BulkAddSubscribers(int groupId, string csvSubscribers64Encoded);
+        SubscriberBulkAddResult BulkAddSubscribers(int groupId, List<Subscriber> subscribers);
         SubscriberBulkImportResult QueryBulkImport(int importId);
         #endregion
 

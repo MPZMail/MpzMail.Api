@@ -7,7 +7,7 @@ namespace MpzMail.Api.Model
     [XmlRoot("xml")]
     public class UnsubscriberResult : BaseResult
     {
-        [XmlElement("campaignCnt")]
+        [XmlElement("unsubscriberCnt")]
         public int Count { get; set; }
         [XmlArray("unsubscribers")]
         [XmlArrayItem(ElementName = "unsubscriber")]

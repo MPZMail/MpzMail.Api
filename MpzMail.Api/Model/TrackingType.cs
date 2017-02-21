@@ -8,7 +8,7 @@ namespace MpzMail.Api.Model
     {
         [XmlEnum("0")]
         All = 0,
-        [XmlElement("1")]
+        [XmlEnum("1")]
         Createcall
     }
 }

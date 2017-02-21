@@ -1,0 +1,18 @@
+﻿<xml>
+  <error>0</error>
+  <status>success</status>
+  <unsubscriberCnt>1</unsubscriberCnt>
+    <unsubscribers>
+      <unsubscriber>
+        <subscriberID>1234</subscriberID>
+        <firstName>Test</firstName>
+        <lastName>User</lastName>
+        <email>test@user.com</email>
+        <groupID>1233</groupID>
+        <companyName>Test Company</companyName>
+        <lastAction>2014-02-03 11:23</lastAction>
+        <bindID>124124124</bindID>
+        <customField1></customField1>
+      </unsubscriber>
+    </unsubscribers>
+  </xml>

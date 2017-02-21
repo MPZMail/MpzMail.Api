@@ -1,0 +1,14 @@
+﻿<xml>
+  <error>0</error>
+  <status>success</status>
+  <newsletterCnt>1</newsletterCnt>
+  <newsletters>
+    <newsletter>
+      <newsletterID>123</newsletterID>
+      <name>Sample Newsletter</name>
+      <dateCreated>2014-05-02 12:23</dateCreated>
+      <lastUpdated>2014-06-03 11:20</lastUpdated>
+      <newsletterHTML><![CDATA[<strong>Welcome to our Newsletter</strong> Here is our newsletter]]></newsletterHTML>
+    </newsletter>
+  </newsletters>
+</xml>
