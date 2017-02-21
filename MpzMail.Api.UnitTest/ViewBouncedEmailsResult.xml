@@ -13,6 +13,7 @@
       <lastAction>2014-02-03T11:23:00</lastAction>
       <bindID>124124124</bindID>
       <customField1></customField1>
+      <bounceType>hard</bounceType>
     </subscriber>
   </subscribers>
 </xml>

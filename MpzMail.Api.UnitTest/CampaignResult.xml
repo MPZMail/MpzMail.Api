@@ -6,10 +6,10 @@
     <campaign>
       <campaignID>1234</campaignID>
       <campaignName>Sample Campaign</campaignName>
-      <dateCreated>2014-06-01 11:00</dateCreated>
+      <dateCreated>2014-06-01T11:00:00</dateCreated>
       <sentFrom>Test User</sentFrom>
       <subject>My Sample Campaign</subject>
-      <startDate>2014-06-02 12:00</startDate>
+      <startDate>2014-06-02T12:00:00</startDate>
       <status>4</status>
       <groupID>1314</groupID>
       <emailFrom>my@emailaddress.com</emailFrom>

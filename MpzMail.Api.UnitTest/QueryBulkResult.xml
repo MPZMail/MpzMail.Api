@@ -1,0 +1,15 @@
+﻿<xml>
+  <error>0</error>
+  <status>success</status>
+  <job>
+    <jobStatus>2</jobStatus>
+    <totSubs>2</totSubs>
+    <totDone>2</totDone>
+    <totInvalid>1</totInvalid>
+    <totDupes>0</totDupes>
+    <totUnsubscribed>1</totUnsubscribed>
+    <dupeData>test@test.com</dupeData>
+    <invalidData></invalidData>
+    <unsubData>unsubscriber@test.com</unsubData>
+  </job>
+</xml>

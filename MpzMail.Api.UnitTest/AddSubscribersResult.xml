@@ -1,0 +1,18 @@
+﻿<xml>
+  <error>0</error>
+  <status>success</status>
+  <subscribers>
+    <subscriber>
+      <error>0</error>
+      <status>success</status>
+      <subscriberID>12314</subscriberID>
+      <email>test@test.com</email>
+    </subscriber>
+    <subscriber>
+      <error>0</error>
+      <status>success</status>
+      <subscriberID>12315</subscriberID>
+      <email>test2@test2.com</email>
+    </subscriber>
+  </subscribers>
+</xml>
