@@ -27,20 +27,8 @@ namespace MpzMail.Api.Model
         public string Country { get; set; }
         [XmlElement("postcode")]
         public string PostalCode { get; set; }
-        [XmlIgnore]
+        [XmlElement(DataType = "date", ElementName ="dateOfBirth")]
         public DateTime DateOfBirth { get; set; }
-        [XmlElement("dateOfBirth")]
-        public string DateOfBirthString
-        {
-            get
-            {
-                return DateOfBirth.ToString("yyyy-MM-dd");
-            }
-            set
-            {
-                this.DateOfBirth = DateTime.Parse(value);
-            }
-        }
         [XmlElement("gender")]
         public Gender Gender { get; set; }
         [XmlElement("isActive")]
