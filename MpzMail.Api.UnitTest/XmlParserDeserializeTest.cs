@@ -23,15 +23,6 @@ namespace MpzMail.Api.UnitTest
         }
 
         [TestMethod]
-        [DeploymentItem("RetrieveCampaign.xml")]
-        public void MyTestMethod()
-        {
-            IXmlParser xmlParser = new DefaultXmlParser();
-            var xml = File.ReadAllText("RetrieveCampaign.xml");
-            var result = xmlParser.Deserialize<CampaignResult>(xml);
-        }
-
-        [TestMethod]
         [DeploymentItem("CampaignResult.xml")]
         public void DeserializeCampaignResult()
         {
@@ -352,7 +343,7 @@ namespace MpzMail.Api.UnitTest
             var result = xmlParser.Deserialize<GroupAddResult>(xml);
             Assert.AreEqual(Status.Successful, result.Status);
             Assert.AreEqual("Success", result.Message);
-            Assert.AreEqual(1234, result.GroupId);
+            Assert.AreEqual("1234", result.GroupId);
         }
 
         [TestMethod]
@@ -363,19 +354,19 @@ namespace MpzMail.Api.UnitTest
             var xml = File.ReadAllText("ViewGroupsResult.xml");
             var result = xmlParser.Deserialize<GroupListResult>(xml);
             Assert.AreEqual(Status.Successful, result.Status);
-            Assert.AreEqual("success", result.Message);
+            Assert.AreEqual("Success", result.Message);
             Assert.AreEqual(2, result.GroupCount);
             Assert.AreEqual(2, result.Groups.Count);
             var first = result.Groups.FirstOrDefault();
             Assert.IsNotNull(first);
             Assert.AreEqual("Test Group 1", first.Name);
-            Assert.AreEqual(123, first.Id);
+            Assert.AreEqual("123", first.Id);
             Assert.AreEqual(1321, first.SubscriberCount);
             Assert.AreEqual(new DateTime(2014, 3, 1, 11, 0, 0), first.CreateDate);
             var second = result.Groups.ElementAt(1);
             Assert.IsNotNull(second);
             Assert.AreEqual("Test Group 2", second.Name);
-            Assert.AreEqual(124, second.Id);
+            Assert.AreEqual("124", second.Id);
             Assert.AreEqual(113, second.SubscriberCount);
             Assert.AreEqual(new DateTime(2014, 5, 3, 12, 1, 0), second.CreateDate);
         }
