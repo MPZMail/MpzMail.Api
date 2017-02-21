@@ -7,7 +7,7 @@ namespace MpzMail.Api.Model
     [XmlRoot("xml")]
     public class LinkResult : BaseResult
     {
-        [XmlElement("linksCnt")]
+        [XmlElement("linkCnt")]
         public int Count { get; set; }
 
         [XmlArray("linksClicked")]

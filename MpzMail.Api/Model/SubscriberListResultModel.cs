@@ -5,7 +5,7 @@ namespace MpzMail.Api.Model
 {
     public class SubscriberListResultModel
     {
-        [XmlIgnore]
+        [XmlElement("dateAdded")]
         public DateTime CreateDate { get; set; }
         [XmlElement("subscriberID")]
         public int Id { get; set; }
@@ -17,30 +17,28 @@ namespace MpzMail.Api.Model
         public string CompanyName { get; set; }
         [XmlElement("email")]
         public string Email { get; set; }
-        [XmlElement("dateAdded")]
-        public string CreateDateString {
-            get { return this.CreateDate.ToString("yyyy-MM-dd HH:mm"); }
-            set { this.CreateDate = DateTime.Parse(value); }
-        }
+
+        #region CustomFields
         [XmlElement("customField1")]
-        public string FirstCustomField { get; set; }
+        public string CustomField1 { get; set; }
         [XmlElement("customField2")]
-        public string SecondCustomField { get; set; }
+        public string CustomField2 { get; set; }
         [XmlElement("customField3")]
-        public string ThirdCustomField { get; set; }
+        public string CustomField3 { get; set; }
         [XmlElement("customField4")]
-        public string FourthCustomField { get; set; }
+        public string CustomField4 { get; set; }
         [XmlElement("customField5")]
-        public string FifthCustomField { get; set; }
+        public string CustomField5 { get; set; }
         [XmlElement("customField6")]
-        public string SixthCustomField { get; set; }
+        public string CustomField6 { get; set; }
         [XmlElement("customField7")]
-        public string SeventhCustomField { get; set; }
+        public string CustomField7 { get; set; }
         [XmlElement("customField8")]
-        public string EighthCustomField { get; set; }
+        public string CustomField8 { get; set; }
         [XmlElement("customField9")]
-        public string NinthCustomField { get; set; }
+        public string CustomField9 { get; set; }
         [XmlElement("customField10")]
-        public string TenthCustomField { get; set; }
+        public string CustomField10 { get; set; }
+        #endregion
     }
 }

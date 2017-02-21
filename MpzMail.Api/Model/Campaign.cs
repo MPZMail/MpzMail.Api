@@ -11,21 +11,10 @@ namespace MpzMail.Api.Model
         public string Name { get; set; }
 
         #region Dates
-        [XmlIgnore]
-        public DateTime CreateDate { get; set; }
         [XmlElement("dateCreated")]
-        public string CreateDateString {
-            get { return this.CreateDate.ToString("yyyy-MM-dd HH:mm"); }
-            set { this.CreateDate = DateTime.Parse(value);  }
-        }
-        [XmlIgnore]
-        public DateTime StartDate { get; set; }
+        public DateTime CreateDate { get; set; }
         [XmlElement("startDate")]
-        public string StartDateString
-        {
-            get { return this.StartDate.ToString("yyyy-MM-dd HH:mm"); }
-            set { this.StartDate = DateTime.Parse(value); }
-        }
+        public DateTime StartDate { get; set; }
         #endregion
 
         [XmlElement("sentFrom")]
@@ -48,7 +37,9 @@ namespace MpzMail.Api.Model
         public int Unsubscribers { get; set; }
         [XmlElement("bounced")]
         public int Bounced { get; set; }
+        [XmlElement("newsletterID")]
         public int NewsletterId { get; set; }
+        [XmlElement("newsletter")]
         public string Newsletter { get; set; }
     }
 }

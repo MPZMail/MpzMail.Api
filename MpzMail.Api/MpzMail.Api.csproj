@@ -44,6 +44,8 @@
     <Compile Include="Model\ActiveState.cs" />
     <Compile Include="Model\Base\BaseResult.cs" />
     <Compile Include="Model\CampaignStatus.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\CustomerResult.cs" />
     <Compile Include="Model\DateModifier.cs" />
     <Compile Include="Model\DateSegmentFieldType.cs" />
     <Compile Include="Model\Group.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="Model\IncludeFooter.cs" />
     <Compile Include="Model\ISegmentField.cs" />
     <Compile Include="Model\NumberAndStringModifier.cs" />
+    <Compile Include="Model\CampaignRetrieveResult.cs" />
     <Compile Include="Model\Segment.cs" />
     <Compile Include="Model\DateSegmentField.cs" />
     <Compile Include="Model\NumberTextSegmentFieldType.cs" />
@@ -103,7 +106,7 @@
     <Compile Include="Model\CampaignSubscriberResult.cs" />
     <Compile Include="Model\SubscriberListRequest.cs" />
     <Compile Include="Model\SubscriberListResult.cs" />
-    <Compile Include="Model\SubscriberAddRequestModel.cs" />
+    <Compile Include="Model\Subscriber.cs" />
     <Compile Include="Model\SubscriberAddRequest.cs" />
     <Compile Include="Model\SubscriberAddResultModel.cs" />
     <Compile Include="Model\SubscriberAddResult.cs" />

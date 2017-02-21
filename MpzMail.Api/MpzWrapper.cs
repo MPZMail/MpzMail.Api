@@ -3,7 +3,9 @@ using MpzMail.Api.Model;
 using MpzMail.Api.Model.Base;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace MpzMail.Api
 {
@@ -107,7 +109,7 @@ namespace MpzMail.Api
             return mailingResult;
         }
 
-        public CampaignResult GetCampaign(int campaignId)
+        public CampaignRetrieveResult GetCampaign(int campaignId)
         {
             var url = $"{this._baseUrl}/campaigns/viewCampaign/";
             var request = new CampaignRequest
@@ -120,14 +122,14 @@ namespace MpzMail.Api
             var httpResponse = this._httpClient.Request(url, xmlRequest);
             if (httpResponse.Status != HttpStatus.Successful)
             {
-                return new CampaignResult
+                return new CampaignRetrieveResult
                 {
                     Status = Status.Error,
                     Message = "Http error"
                 };
             }
 
-            var campaignResult = this._parser.Deserialize<CampaignResult>(httpResponse.Result);
+            var campaignResult = this._parser.Deserialize<CampaignRetrieveResult>(httpResponse.Result);
             return campaignResult;
         }
 
@@ -179,7 +181,7 @@ namespace MpzMail.Api
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDateString = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.ToDate = filter.ToDate.Value;
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -246,12 +248,12 @@ namespace MpzMail.Api
 
             if (filter.FromDate.HasValue)
             {
-                request.FromDateString = filter.FromDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.FromDate = filter.FromDate.Value;
             }
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDateString = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.ToDate = filter.ToDate.Value;
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -318,7 +320,7 @@ namespace MpzMail.Api
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDateString = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.ToDate = filter.ToDate.Value;
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -385,7 +387,7 @@ namespace MpzMail.Api
 
             if (filter.ToDate.HasValue)
             {
-                request.ToDateString = filter.ToDate.Value.ToString("yyyy-MM-dd hh:mm");
+                request.ToDate = filter.ToDate.Value;
             }
 
             var xmlRequest = this._parser.Serialize(request);
@@ -505,14 +507,14 @@ namespace MpzMail.Api
         #endregion
 
         #region Subscribers
-        public SubscriberAddResult AddSubscribers(int groupId, bool? returnCustomFields, List<SubscriberAddRequestModel> subscribersToAdd)
+        public SubscriberAddResult AddSubscribers(int groupId, bool? returnCustomFields, List<Subscriber> subscribers)
         {
             var url = $"{this._baseUrl}/subscribers/addSubscribers/";
             var request = new SubscriberAddRequest
             {
                 ApiKey = this._apiKey,
                 GroupId = groupId,
-                Subscribers = subscribersToAdd,
+                Subscribers = subscribers,
                 ReturnCustomFields = returnCustomFields
             };
 
@@ -748,8 +750,20 @@ namespace MpzMail.Api
             return unsubscribeResult;
         }
 
-        public SubscriberBulkAddResult BulkAddSubscribers(int groupId, string csvSubscribersBase64Encoded)
+        public SubscriberBulkAddResult BulkAddSubscribers(int groupId, List<Subscriber> subscribers)
         {
+            var csv = new StringBuilder();
+            var firstLine = "email,firstname,lastName,companyName,houseNo,address1,address2,town,county,country,postCode,dateOfBirth,gender,customField1,customField2,customField3,customField4,customField5,customField6,customField7,customField8,customField9,customField10";
+            csv.Append(firstLine);
+            var csvSubscribersBase64Encoded = string.Empty;
+            foreach (var subscriber in subscribers)
+            {
+                csv.Append("\r\n");
+                var subscriberToString = subscriber.ToString();
+                csv.Append(subscriberToString);
+            }
+
+            csvSubscribersBase64Encoded = Base64Encode(csv.ToString());
             var url = $"{this._baseUrl}/subscribers/bulkSubscribers/";
             var request = new SubscriberBulkAddRequest
             {
@@ -772,6 +786,13 @@ namespace MpzMail.Api
             var bulkAddResult = this._parser.Deserialize<SubscriberBulkAddResult>(httpResponse.Result);
             return bulkAddResult;
         }
+
+        public string Base64Encode(string plainText)
+        {
+            var bytes = Encoding.UTF8.GetBytes(plainText);
+            return Convert.ToBase64String(bytes);
+        }
+
         public SubscriberBulkImportResult QueryBulkImport(int importId)
         {
             var url = $"{this._baseUrl}/subscribers/bulkQuery/";

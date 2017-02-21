@@ -7,14 +7,11 @@ namespace MpzMail.Api.Model
     [XmlRoot("xml")]
     public class UnsubscriberListRequest : BaseRequest
     {
-        [XmlIgnore]
+        [XmlElement("startDate")]
         public DateTime StartDate { get; set; }
-        [XmlIgnore]
+        [XmlElement("endDate")]
         public DateTime EndDate { get; set; }
         [XmlElement("groupID")]
         public int GroupId { get; set; }
-        [XmlElement("startDate")]
-        public DateTime? StartDateString { get; set; }
-        public DateTime? EndDateString { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace MpzMail.Api.Model
     [XmlRoot("xml")]
     public class NewsletterUploadImageResult : BaseResult
     {
-        [XmlElement("totalFilesUploaded")]
+        [XmlElement("totFilesUploaded")]
         public int UploadedFilesCount { get; set; }
         [XmlArray("filesUploaded")]
         [XmlArrayItem("file")]

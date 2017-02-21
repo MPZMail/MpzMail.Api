@@ -7,21 +7,11 @@ namespace MpzMail.Api.Model
     [XmlRoot("xml")]
     public class CampaignRequest : BaseRequest
     {
-        [XmlIgnore]
+        [XmlElement("fromDate")]
         public DateTime FromDate { get; set; }
-        [XmlIgnore]
+        [XmlElement("toDate")]
         public DateTime ToDate { get; set; }
         [XmlElement("campaignID")]
         public int CampaignId { get; set; }
-        [XmlElement("fromDate")]
-        public string FromDateString {
-            get { return this.FromDate.ToString("yyyy-MM-dd HH:mm"); }
-            set { this.FromDate = DateTime.Parse(value); }
-        }
-        [XmlElement("toDate")]
-        public string ToDateString {
-            get { return this.ToDate.ToString("yyyy-MM-dd HH:mm"); }
-            set { this.ToDate = DateTime.Parse(value); }
-        }
     }
 }

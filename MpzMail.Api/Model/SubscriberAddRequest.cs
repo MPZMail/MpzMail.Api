@@ -13,6 +13,6 @@ namespace MpzMail.Api.Model
         public bool? ReturnCustomFields { get; set; }
         [XmlArray("subscribers")]
         [XmlArrayItem("subscriber")]
-        public List<SubscriberAddRequestModel> Subscribers { get; set; }
+        public List<Subscriber> Subscribers { get; set; }
     }
 }

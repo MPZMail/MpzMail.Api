@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>MpzMail.Api</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Mike Way</authors>
     <owners>MpzMail</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
@@ -10,7 +10,7 @@
     <!-- <iconUrl></iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>MpzMail API</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Add customer method</releaseNotes>
     <tags>MPZMAIL</tags>
   </metadata>
 </package>
