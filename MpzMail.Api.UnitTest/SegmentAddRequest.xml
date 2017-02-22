@@ -1,0 +1,18 @@
+﻿<xml>
+  <apiKey>44-121312131223</apiKey>
+  <groupID>42131</groupID>
+  <segmentName>My New Segment</segmentName>
+  <matchType>1</matchType>
+  <segmentRules>
+    <rule>
+      <field>firstName</field>
+      <modifier>Contains</modifier>
+      <value>hotmail.com</value>
+    </rule>
+    <rule>
+      <field>dateAdded</field>
+      <modifier>Is After</modifier>
+      <value>2014-04-21</value>
+    </rule>
+  </segmentRules>
+</xml>

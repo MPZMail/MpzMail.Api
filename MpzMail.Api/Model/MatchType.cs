@@ -7,13 +7,11 @@ using System.Xml.Serialization;
 
 namespace MpzMail.Api.Model
 {
-    public enum Gender
+    public enum MatchType
     {
-        [XmlEnum("Unkown")]
-        Unknown,
-        [XmlEnum("Male")]
-        Male,
-        [XmlEnum("Female")]
-        Female
+        [XmlEnum("0")]
+        Any = 0,
+        [XmlEnum("1")]
+        All = 1
     }
 }

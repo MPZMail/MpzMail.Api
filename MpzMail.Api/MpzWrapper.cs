@@ -763,6 +763,7 @@ namespace MpzMail.Api
                 csv.Append(subscriberToString);
             }
 
+            var test = csv.ToString();
             csvSubscribersBase64Encoded = Base64Encode(csv.ToString());
             var url = $"{this._baseUrl}/subscribers/bulkSubscribers/";
             var request = new SubscriberBulkAddRequest
@@ -836,6 +837,131 @@ namespace MpzMail.Api
                 Message = internalResult.Message
             };
         }
+
+        public SegmentResult AddSegment(string segmentName, SegmentFilter filter)
+        {
+            var url = $"{this._baseUrl}/groups/addSegment/";
+            var request = new SegmentAddRequest
+            {
+                ApiKey = this._apiKey,
+                GroupId = filter.GroupId,
+                MatchType = filter.MatchType,
+                Name = segmentName,
+                Rules = new List<SegmentRule>()
+            };
+
+            request.Rules = GetRules(filter);
+
+            var xmlRequest = this._parser.Serialize(request);
+            var httpResponse = this._httpClient.Request(url, xmlRequest);
+            if (httpResponse.Status != HttpStatus.Successful)
+            {
+                return new SegmentResult
+                {
+                    Status = Status.Error,
+                    Message = "Http error"
+                };
+            }
+
+            var result = this._parser.Deserialize<SegmentResult>(httpResponse.Result);
+
+            return result;
+        }
+
+        public SegmentResult UpdateSegment(int segmentId, SegmentFilter filter)
+        {
+            var url = $"{this._baseUrl}/groups/updateSegment/";
+            var request = new SegmentUpdateRequest
+            {
+                ApiKey = this._apiKey,
+                GroupId = filter.GroupId,
+                Id = segmentId,
+                MatchType = filter.MatchType,
+                Rules = new List<SegmentRule>()
+            };
+
+            request.Rules = GetRules(filter);
+            var xmlRequest = this._parser.Serialize(request);
+            var httpResponse = this._httpClient.Request(url, xmlRequest);
+            if (httpResponse.Status != HttpStatus.Successful)
+            {
+                return new SegmentResult
+                {
+                    Status = Status.Error,
+                    Message = "Http error"
+                };
+            }
+
+            var result = this._parser.Deserialize<SegmentResult>(httpResponse.Result);
+
+            return result;
+        }
+
+        public SegmentResult DeleteSegment(int groupId, int segmentId)
+        {
+            var url = $"{this._baseUrl}/groups/deleteSegment/";
+            var request = new SegmentDeleteRequest
+            {
+                ApiKey = this._apiKey,
+                GroupId = groupId,
+                SegmentId = segmentId
+            };
+
+            var xmlRequest = this._parser.Serialize(request);
+            var httpResponse = this._httpClient.Request(url, xmlRequest);
+            if (httpResponse.Status != HttpStatus.Successful)
+            {
+                return new SegmentResult
+                {
+                    Status = Status.Error,
+                    Message = "Http error"
+                };
+            }
+
+            var result = this._parser.Deserialize<SegmentResult>(httpResponse.Result);
+            return result;
+        }
+
+        private List<SegmentRule> GetRules(SegmentFilter filter)
+        {
+            var result = new List<SegmentRule>();
+            if (filter.DateFilters != null)
+            {
+                foreach (var dateFilter in filter.DateFilters)
+                {
+                    SegmentField field;
+                    Enum.TryParse(dateFilter.FieldType.ToString(), out field);
+                    SegmentModifier modifier;
+                    Enum.TryParse(dateFilter.Modifier.ToString(), out modifier);
+                    result.Add(new SegmentRule
+                    {
+                        Field = field,
+                        Modifier = modifier,
+                        Value = dateFilter.Value
+                    });
+                }
+            }
+
+            if (filter.NumberTextFilters != null)
+            {
+                foreach (var numberTextFilter in filter.NumberTextFilters)
+                {
+                    SegmentField field;
+                    Enum.TryParse(numberTextFilter.FieldType.ToString(), out field);
+                    SegmentModifier modifier;
+                    Enum.TryParse(numberTextFilter.Modifier.ToString(), out modifier);
+                    result.Add(new SegmentRule
+                    {
+                        Field = field,
+                        Modifier = modifier,
+                        Value = numberTextFilter.Value
+                    });
+                }
+            }
+
+            return result;
+        }
+
 
         #endregion
 

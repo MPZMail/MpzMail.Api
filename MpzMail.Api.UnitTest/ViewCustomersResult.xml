@@ -1,0 +1,12 @@
+﻿<xml>
+  <error>0</error>
+  <status>success</status>
+  <userCnt>1</userCnt>
+  <users>
+    <user>
+      <fullName>Test User</fullName>
+      <emailAddress>test@user.com</emailAddress>
+      <apiKey>11-223441561616</apiKey>
+    </user>
+  </users>
+</xml>

@@ -5,6 +5,10 @@ namespace MpzMail.Api.Model
     public class SegmentRule
     {
         [XmlElement("field")]
-        public ISegmentField Field { get; set; }
+        public SegmentField Field { get; set; }
+        [XmlElement("modifier")]
+        public SegmentModifier Modifier { get; set; }
+        [XmlElement("value")]
+        public string Value { get; set; }
     }
 }
