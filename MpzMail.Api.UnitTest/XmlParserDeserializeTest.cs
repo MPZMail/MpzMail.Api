@@ -435,12 +435,33 @@ namespace MpzMail.Api.UnitTest
         }
 
         [TestMethod]
-        [DeploymentItem("AddSegmentResult.xml")]
-        public void DeserializeAddSegmentResult()
+        [DeploymentItem("SegmentResult.xml")]
+        public void DeserializeSegmentResult()
         {
             IXmlParser xmlParser = new DefaultXmlParser();
-            //var xml = File.ReadAllText("AddSegmentResult.xml");
-            //var result = xmlParser.Deserialize<Segmentre>
+            var xml = File.ReadAllText("SegmentResult.xml");
+            var result = xmlParser.Deserialize<SegmentResult>(xml);
+            Assert.AreEqual(Status.Successful, result.Status);
+            Assert.AreEqual("Success", result.Message);
+            Assert.AreEqual(1234, result.SegmentId);
+        }
+
+        [TestMethod]
+        [DeploymentItem("ViewCustomersResult.xml")]
+        public void DeserializeCustomersResult()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var xml = File.ReadAllText("ViewCustomersResult.xml");
+            var result = xmlParser.Deserialize<CustomerResult>(xml);
+            Assert.AreEqual(Status.Successful, result.Status);
+            Assert.AreEqual("success", result.Message);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual(1, result.Customers.Count);
+            var first = result.Customers.FirstOrDefault();
+            Assert.IsNotNull(first);
+            Assert.AreEqual("Test User", first.FullName);
+            Assert.AreEqual("test@user.com", first.EmailAddress);
+            Assert.AreEqual("11-223441561616", first.ApiKey);
         }
     }
 }

@@ -49,6 +49,9 @@ namespace MpzMail.Api.Contract
         GroupListResult GetGroups();
         GroupDeleteGroupResult DeleteGroup(string groupId);
         SegmentListResult GetSegments(string groupId);
+        SegmentResult AddSegment(string segmentName, SegmentFilter filter);
+        SegmentResult UpdateSegment(int segmentId, SegmentFilter filter);
+        SegmentResult DeleteSegment(int groupId, int segmentId);
         #endregion
 
         #region Customers
