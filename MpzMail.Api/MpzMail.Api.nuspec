@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>MpzMail.Api</id>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <authors>Mike Way</authors>
     <owners>MpzMail</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
