@@ -48,6 +48,7 @@
     <Compile Include="Model\CustomerResult.cs" />
     <Compile Include="Model\DateModifier.cs" />
     <Compile Include="Model\DateSegmentFieldType.cs" />
+    <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\GroupAddRequest.cs" />
     <Compile Include="Model\GroupAddResult.cs" />

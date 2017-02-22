@@ -7,13 +7,13 @@
       <groupName>Test Group 1</groupName>
       <groupID>123</groupID>
       <subscribers>1321</subscribers>
-      <dateCreated>2014-03-01 11:00</dateCreated>
+      <dateCreated>2014-03-01T11:00:00</dateCreated>
     </group>
     <group>
       <groupName>Test Group 2</groupName>
       <groupID>124</groupID>
       <subscribers>113</subscribers>
-      <dateCreated>2014-05-03 12:01</dateCreated>
+      <dateCreated>2014-05-03T12:01:00</dateCreated>
     </group>
   </groups>
 </xml>

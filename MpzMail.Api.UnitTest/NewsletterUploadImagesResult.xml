@@ -1,0 +1,11 @@
+﻿<xml>
+  <error>0</error>
+  <status>success</status>
+  <totFilesUploaded>1</totFilesUploaded>
+  <filesUploaded>
+    <file>
+      <shortName>12412414.jpg</shortName>
+      <fullPath>http://mpzmail.com/users/1312124/12412414.jpg</fullPath>
+    </file>
+  </filesUploaded>
+</xml>

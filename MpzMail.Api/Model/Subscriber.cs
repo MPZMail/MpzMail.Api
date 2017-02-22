@@ -27,8 +27,22 @@ namespace MpzMail.Api.Model
         public string Country { get; set; }
         [XmlElement("postcode")]
         public string PostalCode { get; set; }
-        [XmlElement("dateOfBirth")]
+        [XmlIgnore]
         public DateTime DateOfBirth { get; set; }
+        [XmlElement("dateOfBirth")]
+        public string DateOfBirthString
+        {
+            get
+            {
+                return DateOfBirth.ToString("yyyy-MM-dd");
+            }
+            set
+            {
+                this.DateOfBirth = DateTime.Parse(value);
+            }
+        }
+        [XmlElement("gender")]
+        public Gender Gender { get; set; }
         [XmlElement("isActive")]
         public ActiveState Active { get; set; }
 
@@ -57,7 +71,7 @@ namespace MpzMail.Api.Model
 
         public override string ToString()
         {
-            return $"{this.Email},{this.FirstName},{this.LastName},{this.CompanyName},{this.HouseNumber},{this.FirstAddress},{this.SecondAddress},{this.City},{this.County},{this.County},{this.PostalCode},{this.DateOfBirth.ToString()},{this.CustomField1},{this.CustomField2},{this.CustomField3},{this.CustomField4},{this.CustomField5},{this.CustomField6}{this.CustomField7},{this.CustomField8},{this.CustomField9},{this.CustomField10}";
+            return $"{this.Email},{this.FirstName},{this.LastName},{this.CompanyName},{this.HouseNumber},{this.FirstAddress},{this.SecondAddress},{this.City},{this.County},{this.County},{this.PostalCode},{this.DateOfBirth.ToString("yyyy-MM-dd")},{this.Gender.ToString()},{this.CustomField1},{this.CustomField2},{this.CustomField3},{this.CustomField4},{this.CustomField5},{this.CustomField6}{this.CustomField7},{this.CustomField8},{this.CustomField9},{this.CustomField10}";
         }
     }
 }

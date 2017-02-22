@@ -9,7 +9,7 @@
       <lastName>User</lastName>
       <email>test@user.com</email>
       <groupID>1233</groupID>
-      <dateClicked>2016-01-03 11:23</dateClicked>
+      <dateClicked>2016-01-03T11:23:00</dateClicked>
       <urlClicked>http://samplewebsite.com</urlClicked>
       <trackingType>0</trackingType>
       <bindID>124124124</bindID>

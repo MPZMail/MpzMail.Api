@@ -1,0 +1,15 @@
+﻿<xml>
+  <error>0</error>
+  <status>Success</status>
+  <segmentCnt>2</segmentCnt>
+  <segments>
+    <segment>
+      <segmentID>122</segmentID>
+      <segmentName>Test Segment 1</segmentName>
+    </segment>
+    <segment>
+      <segmentID>123</segmentID>
+      <segmentName>Test Segment 2</segmentName>
+    </segment>
+  </segments>
+</xml>

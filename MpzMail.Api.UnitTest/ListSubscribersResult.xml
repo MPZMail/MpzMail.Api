@@ -1,0 +1,23 @@
+﻿<xml>
+  <error>0</error>
+  <status>success</status>
+  <subscriberCnt>2</subscriberCnt>
+  <subscribers>
+    <subscriber>
+      <subscriberID>1311</subscriberID>
+      <firstName>Test</firstName>
+      <lastName>User</lastName>
+      <companyName>Test Co</companyName>
+      <email>test@test.com</email>
+      <dateAdded>2014-01-01T11:37:00</dateAdded>
+    </subscriber>
+    <subscriber>
+      <subscriberID>1312</subscriberID>
+      <firstName>Test2</firstName>
+      <lastName>User2</lastName>
+      <companyName>Test Co2</companyName>
+      <email>test@test2.com</email>
+      <dateAdded>2014-03-05T12:25:00</dateAdded>
+    </subscriber>
+  </subscribers>
+</xml>

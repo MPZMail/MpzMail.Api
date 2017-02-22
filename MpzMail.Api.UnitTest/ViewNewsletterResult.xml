@@ -6,8 +6,8 @@
     <newsletter>
       <newsletterID>123</newsletterID>
       <name>Sample Newsletter</name>
-      <dateCreated>2014-05-02 12:23</dateCreated>
-      <lastUpdated>2014-06-03 11:20</lastUpdated>
+      <dateCreated>2014-05-02T12:23:00</dateCreated>
+      <lastUpdated>2014-06-03T11:20:00</lastUpdated>
       <newsletterHTML><![CDATA[<strong>Welcome to our Newsletter</strong> Here is our newsletter]]></newsletterHTML>
     </newsletter>
   </newsletters>

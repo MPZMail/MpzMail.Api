@@ -1,0 +1,23 @@
+﻿<xml>
+  <error>0</error>
+  <status>success</status>
+  <campaignCnt>1</campaignCnt>
+  <campaign>
+    <campaignID>1234</campaignID>
+    <campaignName>Sample Campaign</campaignName>
+    <dateCreated>2014-06-01T11:00:00</dateCreated>
+    <sentFrom>Test User</sentFrom>
+    <subject>My Sample Campaign</subject>
+    <startDate>2014-06-02T12:00:00</startDate>
+    <status>4</status>
+    <groupID>1314</groupID>
+    <emailFrom>my@emailaddress.com</emailFrom>
+    <totalRecipients>12</totalRecipients>
+    <opened>3</opened>
+      <clicks>2</clicks>
+      <unsubscribers>1</unsubscribers>
+      <bounced>2</bounced>
+      <newsletterID>2131</newsletterID>
+      <newsletter><![CDATA[21asvasvasv7as*V&VSA*V&ASVcsacascasc31]]></newsletter>
+    </campaign>
+</xml>
