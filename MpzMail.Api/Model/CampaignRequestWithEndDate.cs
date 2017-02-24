@@ -9,13 +9,11 @@ using System.Xml.Serialization;
 namespace MpzMail.Api.Model
 {
     [XmlRoot("xml")]
-    public class CampaignRequest : BaseRequest
+    public class CampaignRequestWithEndDate : BaseRequest
     {
         [XmlElement("campaignID")]
         public int CampaignId { get; set; }
-        [XmlElement("fromDate")]
-        public DateTime FromDate { get; set; }
-        [XmlElement("toDate")]
-        public DateTime ToDate { get; set; }
+        [XmlElement("endDate")]
+        public DateTime EndDate { get; set; }
     }
 }

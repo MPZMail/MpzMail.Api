@@ -24,6 +24,77 @@ namespace MpzMail.Api
             this._baseUrl = baseUrl;
         }
 
+        #region AccountFunctions
+        public AccountResult CreateAccount(string emailAddres, string password, string fullname, AccountOptions options)
+        {
+            var url = $"{this._baseUrl}/account/createaccount/";
+            var request = new AccountRequest
+            {
+                ApiKey = this._apiKey,
+                EmailAddress = emailAddres,
+                Password = password,
+                Fullname = fullname,
+            };
+
+            if (options != null)
+            {
+                if (!string.IsNullOrEmpty(options.AgencyId))
+                {
+                    request.AgencyId = options.AgencyId;
+                }
+
+                if (options.AgencyAccount.HasValue)
+                {
+                    request.AgencyAccount = options.AgencyAccount.Value;
+                }
+
+                if (options.Type.HasValue)
+                {
+                    request.Type = options.Type.Value;
+                }
+            }
+
+            var xmlRequest = this._parser.Serialize(request);
+            var httpResponse = this._httpClient.Request(url, xmlRequest);
+            if (httpResponse.Status != HttpStatus.Successful)
+            {
+                return new AccountResult
+                {
+                    Status = Status.Error,
+                    Message = "Http error"
+                };
+            }
+
+            var result = this._parser.Deserialize<AccountResult>(httpResponse.Result);
+            return result;
+        }
+
+        public BaseResult TransferCredits(int recipientId, int credits)
+        {
+            var url = $"{this._baseUrl}/account/transferCredits/";
+            var request = new TransferCreditRequest
+            {
+                ApiKey = this._apiKey,
+                Credits = credits,
+                RecipientId = recipientId
+            };
+
+            var xmlRequest = this._parser.Serialize(request);
+            var httpResponse = this._httpClient.Request(url, xmlRequest);
+            if (httpResponse.Status != HttpStatus.Successful)
+            {
+                return new BaseResult
+                {
+                    Status = Status.Error,
+                    Message = "Http error"
+                };
+            }
+
+            var result = this._parser.Deserialize<BaseResult>(httpResponse.Result);
+            return result;
+        }
+        #endregion
+
         #region Campaigns
 
         public CampaignAddResult AddCampaign(CampaignAddRequest campaignToAdd)
@@ -112,7 +183,7 @@ namespace MpzMail.Api
         public CampaignRetrieveResult GetCampaign(int campaignId)
         {
             var url = $"{this._baseUrl}/campaigns/viewCampaign/";
-            var request = new CampaignRequest
+            var request = new RetrieveCampaignRequest
             {
                 ApiKey = this._apiKey,
                 CampaignId = campaignId,
@@ -133,10 +204,35 @@ namespace MpzMail.Api
             return campaignResult;
         }
 
+        public CampaignRetrieveResult GetCampaign(int campaignId, DateTime endDate)
+        {
+            var url = $"{this._baseUrl}/campaigns/viewCampaign/";
+            var request = new CampaignRequestWithEndDate
+            {
+                ApiKey = this._apiKey,
+                CampaignId = campaignId,
+                EndDate = endDate
+            };
+
+            var xmlRequest = this._parser.Serialize(request);
+            var httpResponse = this._httpClient.Request(url, xmlRequest);
+            if (httpResponse.Status != HttpStatus.Successful)
+            {
+                return new CampaignRetrieveResult
+                {
+                    Status = Status.Error,
+                    Message = "Http error"
+                };
+            }
+
+            var campaignResult = this._parser.Deserialize<CampaignRetrieveResult>(httpResponse.Result);
+            return campaignResult;
+        }
+
         public CampaignSubscriberResult GetOpenedEmails(int campaignId)
         {
             var url = $"{this._baseUrl}/campaigns/listOpens/";
-            var request = new CampaignRequest
+            var request = new RetrieveCampaignRequest
             {
                 ApiKey = this._apiKey,
                 CampaignId = campaignId
@@ -274,7 +370,7 @@ namespace MpzMail.Api
         public UnsubscriberResult GetUnsubscribers(int campaignId)
         {
             var url = $"{this._baseUrl}/campaigns/listUnsubscribers/";
-            var request = new CampaignRequest
+            var request = new RetrieveCampaignRequest
             {
                 ApiKey = this._baseUrl,
                 CampaignId = campaignId
@@ -341,7 +437,7 @@ namespace MpzMail.Api
         public CampaignSubscriberResult GetBounces(int campaignId)
         {
             var url = $"{this._baseUrl}/campaigns/listBounces/";
-            var request = new CampaignRequest
+            var request = new RetrieveCampaignRequest
             {
                 ApiKey = this._apiKey,
                 CampaignId = campaignId
@@ -763,8 +859,17 @@ namespace MpzMail.Api
                 csv.Append(subscriberToString);
             }
 
-            var test = csv.ToString();
-            csvSubscribersBase64Encoded = Base64Encode(csv.ToString());
+            var bytes = Utf8Encode(csv.ToString());
+            if (bytes.Length > 22499919) // max bytes: 22.499.919
+            {
+                return new SubscriberBulkAddResult
+                {
+                    Status = Status.Error,
+                    Message = "Too many subscribers"
+                };
+            }
+
+            csvSubscribersBase64Encoded = Base64Encode(bytes);
             var url = $"{this._baseUrl}/subscribers/bulkSubscribers/";
             var request = new SubscriberBulkAddRequest
             {
@@ -788,10 +893,14 @@ namespace MpzMail.Api
             return bulkAddResult;
         }
 
-        public string Base64Encode(string plainText)
+        public string Base64Encode(byte[] bytes)
         {
-            var bytes = Encoding.UTF8.GetBytes(plainText);
             return Convert.ToBase64String(bytes);
+        }
+
+        public byte[] Utf8Encode(string plainText)
+        {
+            return Encoding.UTF8.GetBytes(plainText);
         }
 
         public SubscriberBulkImportResult QueryBulkImport(int importId)

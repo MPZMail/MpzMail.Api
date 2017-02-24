@@ -41,13 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AccountRequest.cs" />
+    <Compile Include="Model\AccountResult.cs" />
+    <Compile Include="Model\AccountOptions.cs" />
     <Compile Include="Model\ActiveState.cs" />
+    <Compile Include="Model\AgencyAccount.cs" />
+    <Compile Include="Model\ApiKeyRequest.cs" />
+    <Compile Include="Model\ApiKeyResult.cs" />
     <Compile Include="Model\Base\BaseResult.cs" />
+    <Compile Include="Model\CampaignRequest.cs" />
+    <Compile Include="Model\CampaignRequestWithEndDate.cs" />
     <Compile Include="Model\CampaignStatus.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\CustomerResult.cs" />
     <Compile Include="Model\DateModifier.cs" />
     <Compile Include="Model\DateSegmentFieldType.cs" />
+    <Compile Include="Model\AccountType.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\GroupAddRequest.cs" />
@@ -106,7 +115,7 @@
     <Compile Include="Model\LinkFilter.cs" />
     <Compile Include="Model\LinkRequest.cs" />
     <Compile Include="Model\LinkResult.cs" />
-    <Compile Include="Model\CampaignRequest.cs" />
+    <Compile Include="Model\RetrieveCampaignRequest.cs" />
     <Compile Include="Model\NewsletterAddResult.cs" />
     <Compile Include="Model\NewsletterListResult.cs" />
     <Compile Include="Model\NewsletterUpdloadImageRequest.cs" />
@@ -124,11 +133,14 @@
     <Compile Include="Model\SubscriberSortOrder.cs" />
     <Compile Include="Model\SubscriberUnsubscribeRequest.cs" />
     <Compile Include="Model\TrackingType.cs" />
+    <Compile Include="Model\TransferCreditRequest.cs" />
     <Compile Include="Model\Unsubscriber.cs" />
     <Compile Include="Model\UnsubscriberListRequest.cs" />
     <Compile Include="Model\UnsubscriberListResult.cs" />
     <Compile Include="Model\UnsubscriberResult.cs" />
     <Compile Include="Model\SubscriberUpdateRequest.cs" />
+    <Compile Include="Model\UnsubscribeSubscriberRequestWithEmail.cs" />
+    <Compile Include="Model\UnsubscribeSubscriberRequestWithId.cs" />
     <Compile Include="MpzWrapper.cs" />
     <Compile Include="DefaultHttpClient.cs" />
     <Compile Include="Contract\IMpzWrapper.cs" />

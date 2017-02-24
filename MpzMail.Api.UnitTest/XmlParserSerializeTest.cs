@@ -110,5 +110,91 @@ namespace MpzMail.Api.UnitTest
             var xml = File.ReadAllText("SegmentAddRequest.xml");
             Assert.AreEqual(xml, requestXml);
         }
+
+        [TestMethod]
+        [DeploymentItem("ViewSegmentsRequest.xml")]
+        public void SerializeViewSegmentsRequest()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var request = new SegmentListRequest
+            {
+                ApiKey = "44-121312131223",
+                GroupId = "123"
+            };
+
+            var requestXml = xmlParser.Serialize(request);
+            var xml = File.ReadAllText("ViewSegmentsRequest.xml");
+            Assert.AreEqual(xml, requestXml);
+        }
+
+        [TestMethod]
+        [DeploymentItem("ViewUnsubscribersRequest.xml")]
+        public void ListUnsubscribersRequest()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var request = new UnsubscriberListRequest
+            {
+                ApiKey = "44-121312131223",
+                GroupId = 3213,
+                StartDate = new DateTime(2014, 1, 1),
+                EndDate = new DateTime(2015, 1, 1)
+            };
+
+            var requestXml = xmlParser.Serialize(request);
+            var xml = File.ReadAllText("ViewUnsubscribersRequest.xml");
+            Assert.AreEqual(xml, requestXml);
+        }
+
+        [TestMethod]
+        [DeploymentItem("UpdateSubscriberRequest.xml")]
+        public void SerializeUpdateSubscriberRequest()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var request = new SubscriberUpdateRequest
+            {
+                ApiKey = "44-121312131223",
+                GroupId = 213213,
+                SubscriberId = 981413,
+                FirstName = "Test",
+                LastName = "User",
+                CompanyName = "Test Company"
+            };
+
+            var requestXml = xmlParser.Serialize(request);
+            var xml = File.ReadAllText("UpdateSubscriberRequest.xml");
+            Assert.AreEqual(xml, requestXml);
+        }
+
+        [TestMethod]
+        [DeploymentItem("UnsubscribeSubscriberRequestWithEmail.xml")]
+        public void SerializeUnsubscribeSubscriberRequestWithEmail()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var request = new UnsubscribeSubscriberRequestWithEmail
+            {
+                ApiKey = "44-121312131223",
+                Email = "test@test.com"
+            };
+
+            var requestXml = xmlParser.Serialize(request);
+            var xml = File.ReadAllText("UnsubscribeSubscriberRequestWithEmail.xml");
+            Assert.AreEqual(xml, requestXml);
+        }
+
+        [TestMethod]
+        [DeploymentItem("UnsubscribeSubscriberRequestWithId.xml")]
+        public void SerializeUnsubscribeSubscriberRequestWithId()
+        {
+            IXmlParser xmlParser = new DefaultXmlParser();
+            var request = new UnsubscribeSubscriberRequestWithId
+            {
+                ApiKey = "44-121312131223",
+                SubscriberId = 12323
+            };
+
+            var requestXml = xmlParser.Serialize(request);
+            var xml = File.ReadAllText("UnsubscribeSubscriberRequestWithId.xml");
+            Assert.AreEqual(xml, requestXml);
+        }
     }
 }
