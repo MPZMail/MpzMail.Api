@@ -10,11 +10,17 @@ namespace MpzMail.Api
 {
     public class DefaultHttpClient : IHttpClient
     {
+        private readonly int _timeout;
+        public DefaultHttpClient(int timeoutInSeconds = 300)
+        {
+            this._timeout = timeoutInSeconds;
+        }
+
         public HttpResult Request(string url, string xml)
         {
             using (var httpClient = new HttpClient())
             {
-                httpClient.Timeout = new TimeSpan(0, 30, 0);
+                httpClient.Timeout = new TimeSpan(0, 0, this._timeout);
                 var httpContent = new StringContent(xml, Encoding.UTF8, "application/xml");
                 try
                 {
