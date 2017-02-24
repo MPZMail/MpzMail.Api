@@ -1,16 +1,23 @@
 ﻿using MpzMail.Api.Model;
 using MpzMail.Api.Model.Base;
+using System;
 using System.Collections.Generic;
 
 namespace MpzMail.Api.Contract
 {
     public interface IMpzWrapper
     {
+        #region AccountFunctions
+        AccountResult CreateAccount(string emailAddres, string password, string fullname, AccountOptions settings);
+        BaseResult TransferCredits(int recipientId, int credits);
+        #endregion
+
         #region Campaigns
         CampaignAddResult AddCampaign(CampaignAddRequest campaignToAdd);
         CampaignResult GetCampaigns();
         CampaignResult GetCampaigns(DateFilter filter);
         CampaignRetrieveResult GetCampaign(int campaignId);
+        CampaignRetrieveResult GetCampaign(int campaignId, DateTime endDate);
         CampaignSubscriberResult GetOpenedEmails(int campaignId);
         CampaignSubscriberResult GetOpenedEmails(int campaignId, DateFilter filter);
         LinkResult GetClickedLinks(int campaignId);
