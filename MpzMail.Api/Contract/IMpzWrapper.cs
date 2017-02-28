@@ -17,7 +17,6 @@ namespace MpzMail.Api.Contract
         CampaignResult GetCampaigns();
         CampaignResult GetCampaigns(DateFilter filter);
         CampaignRetrieveResult GetCampaign(int campaignId);
-        CampaignRetrieveResult GetCampaign(int campaignId, DateTime endDate);
         CampaignSubscriberResult GetOpenedEmails(int campaignId);
         CampaignSubscriberResult GetOpenedEmails(int campaignId, DateFilter filter);
         LinkResult GetClickedLinks(int campaignId);
