@@ -15,6 +15,8 @@ namespace MpzMail.Api.Model
         public DateTime CreateDate { get; set; }
         [XmlElement("startDate")]
         public DateTime StartDate { get; set; }
+        [XmlElement("endDate")]
+        public DateTime EndDate { get; set; }
         #endregion
 
         [XmlElement("sentFrom")]

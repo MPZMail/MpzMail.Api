@@ -183,35 +183,10 @@ namespace MpzMail.Api
         public CampaignRetrieveResult GetCampaign(int campaignId)
         {
             var url = $"{this._baseUrl}/campaigns/viewCampaign/";
-            var request = new RetrieveCampaignRequest
+            var request = new CampaignRequest
             {
                 ApiKey = this._apiKey,
-                CampaignId = campaignId,
-            };
-
-            var xmlRequest = this._parser.Serialize(request);
-            var httpResponse = this._httpClient.Request(url, xmlRequest);
-            if (httpResponse.Status != HttpStatus.Successful)
-            {
-                return new CampaignRetrieveResult
-                {
-                    Status = Status.Error,
-                    Message = "Http error"
-                };
-            }
-
-            var campaignResult = this._parser.Deserialize<CampaignRetrieveResult>(httpResponse.Result);
-            return campaignResult;
-        }
-
-        public CampaignRetrieveResult GetCampaign(int campaignId, DateTime endDate)
-        {
-            var url = $"{this._baseUrl}/campaigns/viewCampaign/";
-            var request = new CampaignRequestWithEndDate
-            {
-                ApiKey = this._apiKey,
-                CampaignId = campaignId,
-                EndDate = endDate
+                CampaignId = campaignId
             };
 
             var xmlRequest = this._parser.Serialize(request);
