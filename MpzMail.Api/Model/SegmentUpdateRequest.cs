@@ -20,5 +20,11 @@ namespace MpzMail.Api.Model
         [XmlArray("segmentRules")]
         [XmlArrayItem("rule")]
         public List<SegmentRule> Rules { get; set; }
+        [XmlElement("segmentName")]
+        public string SegmentName { get; set; }
+        public bool ShouldSerializeSegmentName()
+        {
+            return !string.IsNullOrEmpty(SegmentName);
+        }
     }
 }

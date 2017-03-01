@@ -50,7 +50,6 @@
     <Compile Include="Model\ApiKeyResult.cs" />
     <Compile Include="Model\Base\BaseResult.cs" />
     <Compile Include="Model\CampaignRequest.cs" />
-    <Compile Include="Model\CampaignRequestWithEndDate.cs" />
     <Compile Include="Model\CampaignStatus.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\CustomerResult.cs" />

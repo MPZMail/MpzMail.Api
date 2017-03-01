@@ -14,8 +14,16 @@ namespace MpzMail.Api.Model
         [XmlElement("campaignID")]
         public int CampaignId { get; set; }
         [XmlElement("fromDate")]
-        public DateTime FromDate { get; set; }
+        public DateTime? FromDate { get; set; }
+        public bool ShouldSerializeFromDate()
+        {
+            return FromDate.HasValue;
+        }
         [XmlElement("toDate")]
-        public DateTime ToDate { get; set; }
+        public DateTime? ToDate { get; set; }
+        public bool ShouldSerializeToDate()
+        {
+            return ToDate.HasValue;
+        }
     }
 }

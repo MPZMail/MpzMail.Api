@@ -8,7 +8,7 @@ namespace MpzMail.Api.Model
     {
         [XmlElement("newsletterName")]
         public string NewsletterName { get; set; }
-        [XmlElement("newsletterHtml")]
+        [XmlElement("newsletterHTML")]
         public string Html { get; set; }
     }
 }

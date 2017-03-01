@@ -12,9 +12,21 @@ namespace MpzMail.Api.Model
         public int SubscriberId { get; set; }
         [XmlElement("firstName")]
         public string FirstName { get; set; }
+        public bool ShouldSerializeFirstName()
+        {
+            return !string.IsNullOrEmpty(FirstName);
+        }
         [XmlElement("lastName")]
         public string LastName { get; set; }
+        public bool ShouldSerializeLastName()
+        {
+            return !string.IsNullOrEmpty(LastName);
+        }
         [XmlElement("companyName")]
         public string CompanyName { get; set; }
+        public bool ShouldSerializeCompanyName()
+        {
+            return !string.IsNullOrEmpty(CompanyName);
+        }
     }
 }

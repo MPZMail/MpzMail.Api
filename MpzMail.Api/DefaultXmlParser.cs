@@ -65,12 +65,17 @@ namespace MpzMail.Api
                     }
                 }
 
-                return xml;
+                return EscapeCharacters(xml);
             }
             catch (Exception exception)
             {
                 return string.Empty;
             }
+        }
+
+        private string EscapeCharacters(string xml)
+        {
+            return xml.Replace("&lt;", "<").Replace("&gt;", ">");
         }
     }
 }

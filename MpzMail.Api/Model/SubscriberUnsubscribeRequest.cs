@@ -11,8 +11,16 @@ namespace MpzMail.Api.Model
         [XmlElement("subscriberID")]
         public int SubscriberId { get; set; }
         [XmlElement("groupID")]
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
+        public bool ShouldSerializeGroupId()
+        {
+            return GroupId.HasValue;
+        }
         [XmlElement("returnAllFields")]
-        public ReturnAllFields ReturnWithCustomFields { get; set; }
+        public ReturnAllFields? ReturnWithCustomFields { get; set; }
+        public bool ShouldSerializeReturnWithCustomFields()
+        {
+            return ReturnWithCustomFields.HasValue;
+        }
     }
 }

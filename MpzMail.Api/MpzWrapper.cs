@@ -204,31 +204,6 @@ namespace MpzMail.Api
             return campaignResult;
         }
 
-        public CampaignRetrieveResult GetCampaign(int campaignId, DateTime endDate)
-        {
-            var url = $"{this._baseUrl}/campaigns/viewCampaign/";
-            var request = new CampaignRequestWithEndDate
-            {
-                ApiKey = this._apiKey,
-                CampaignId = campaignId,
-                EndDate = endDate
-            };
-
-            var xmlRequest = this._parser.Serialize(request);
-            var httpResponse = this._httpClient.Request(url, xmlRequest);
-            if (httpResponse.Status != HttpStatus.Successful)
-            {
-                return new CampaignRetrieveResult
-                {
-                    Status = Status.Error,
-                    Message = "Http error"
-                };
-            }
-
-            var campaignResult = this._parser.Deserialize<CampaignRetrieveResult>(httpResponse.Result);
-            return campaignResult;
-        }
-
         public CampaignSubscriberResult GetOpenedEmails(int campaignId)
         {
             var url = $"{this._baseUrl}/campaigns/listOpens/";

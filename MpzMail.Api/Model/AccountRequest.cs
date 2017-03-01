@@ -18,10 +18,22 @@ namespace MpzMail.Api.Model
         [XmlElement("fullname")]
         public string Fullname { get; set; }
         [XmlElement("agencyAccount")]
-        public AgencyAccount AgencyAccount { get; set; }
+        public AgencyAccount? AgencyAccount { get; set; }
+        public bool ShouldSerializeAgencyAccount()
+        {
+            return AgencyAccount.HasValue;
+        }
         [XmlElement("agencyID")]
         public string AgencyId { get; set; }
+        public bool ShouldSerializeAgencyId()
+        {
+            return !string.IsNullOrEmpty(AgencyId);
+        }
         [XmlElement("isFreeAccount")]
-        public AccountType Type { get; set; }
+        public AccountType? Type { get; set; }
+        public bool ShouldSerializeType()
+        {
+            return Type.HasValue;
+        }
     }
 }

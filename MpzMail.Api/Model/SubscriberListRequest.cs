@@ -9,12 +9,28 @@ namespace MpzMail.Api.Model
         [XmlElement("groupID")]
         public int GroupId { get; set; }
         [XmlElement("noOfSubscribers")]
-        public int SubscriberCountToReturn { get; set; }
+        public int? SubscriberCountToReturn { get; set; }
+        public bool ShouldSerializeSubscriberCountToReturn()
+        {
+            return SubscriberCountToReturn.HasValue;
+        }
         [XmlElement("sortField")]
-        public SubscriberSortField FieldToSortBy { get; set; }
+        public SubscriberSortField? FieldToSortBy { get; set; }
+        public bool ShouldSerializeFieldToSortBy()
+        {
+            return FieldToSortBy.HasValue;
+        }
         [XmlElement("sortOrder")]
-        public SubscriberSortOrder DirectionToSortBy { get; set; }
+        public SubscriberSortOrder? DirectionToSortBy { get; set; }
+        public bool ShouldSerializeDirectionToSortBy()
+        {
+            return DirectionToSortBy.HasValue;
+        }
         [XmlElement("emailAddress")]
         public string PartOfOrWholeEmail { get; set; }
+        public bool ShouldSerializePartOfOrWholeEmail()
+        {
+            return !string.IsNullOrEmpty(PartOfOrWholeEmail);
+        }
     }
 }

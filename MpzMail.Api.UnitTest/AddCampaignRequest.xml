@@ -1,0 +1,10 @@
+﻿<xml>
+  <apiKey>44-121312131223</apiKey>
+  <groupID>432</groupID>
+  <newsletterID>313</newsletterID>
+  <campaignName>Sample Campaign</campaignName>
+  <senderName>My Name</senderName>
+  <senderEmail>myemail@address.com</senderEmail>
+  <subject>Welcome to my newsletter</subject>
+  <startDate>2014-06-01T12:00:00</startDate>
+</xml>
