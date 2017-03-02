@@ -1,5 +1,8 @@
 #MpzMail C# API
 
+###Documentation
+More information over the methods you can found [here](http://mpzmail.com/mpzapi/)
+
 ###nuget
 The package is available on [nuget](https://www.nuget.org/packages/MpzMail.Api/)
 ```

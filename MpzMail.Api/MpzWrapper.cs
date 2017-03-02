@@ -183,10 +183,10 @@ namespace MpzMail.Api
         public CampaignRetrieveResult GetCampaign(int campaignId)
         {
             var url = $"{this._baseUrl}/campaigns/viewCampaign/";
-            var request = new RetrieveCampaignRequest
+            var request = new CampaignRequest
             {
                 ApiKey = this._apiKey,
-                CampaignId = campaignId,
+                CampaignId = campaignId
             };
 
             var xmlRequest = this._parser.Serialize(request);
