@@ -21,6 +21,8 @@ namespace MpzMail.Api.Model
 
         [XmlElement("sentFrom")]
         public string SentFrom { get; set; }
+        [XmlElement("replyTo")]
+        public string ReplyTo { get; set; }
         [XmlElement("subject")]
         public string Subject { get; set; }
         [XmlElement("status")]
@@ -31,6 +33,10 @@ namespace MpzMail.Api.Model
         public string EmailFrom { get; set; }
         [XmlElement("totalRecipients")]
         public int TotalRecipients { get; set; }
+        [XmlElement("totalEmailsSent")]
+        public int TotalEmailsSent { get; set; }
+        [XmlElement("progressPct")]
+        public float ProgressPercent { get; set; }
         [XmlElement("opened")]
         public int Opened { get; set; }
         [XmlElement("clicks")]
