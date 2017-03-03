@@ -78,6 +78,9 @@ namespace MpzMail.Api.UnitTest
             Assert.AreEqual(2, first.Clicks);
             Assert.AreEqual(1, first.Unsubscribers);
             Assert.AreEqual(2, first.Bounced);
+            Assert.AreEqual(91.67, first.ProgressPercent);
+            Assert.AreEqual("noreply@example.com", first.ReplyTo);
+            Assert.AreEqual(11, first.TotalEmailsSent);
         }
 
         [TestMethod]

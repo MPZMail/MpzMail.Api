@@ -8,6 +8,9 @@
       <campaignName>Sample Campaign</campaignName>
       <dateCreated>2014-06-01T11:00:00</dateCreated>
       <sentFrom>Test User</sentFrom>
+      <replyTo><![CDATA[noreply@example.com]]></replyTo>
+      <totalEmailsSent>11</totalEmailsSent>
+      <progressPct>91.67</progressPct>
       <subject>My Sample Campaign</subject>
       <startDate>2014-06-02T12:00:00</startDate>
       <status>4</status>

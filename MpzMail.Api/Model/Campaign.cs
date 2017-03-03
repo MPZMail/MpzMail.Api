@@ -36,7 +36,7 @@ namespace MpzMail.Api.Model
         [XmlElement("totalEmailsSent")]
         public int TotalEmailsSent { get; set; }
         [XmlElement("progressPct")]
-        public float ProgressPercent { get; set; }
+        public double ProgressPercent { get; set; }
         [XmlElement("opened")]
         public int Opened { get; set; }
         [XmlElement("clicks")]
