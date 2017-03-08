@@ -23,17 +23,18 @@ namespace MpzMail.Api.Model
         {
             return AgencyAccount.HasValue;
         }
-        [XmlElement("agencyID")]
-        public string AgencyId { get; set; }
-        public bool ShouldSerializeAgencyId()
-        {
-            return !string.IsNullOrEmpty(AgencyId);
-        }
         [XmlElement("isFreeAccount")]
         public AccountType? Type { get; set; }
         public bool ShouldSerializeType()
         {
             return Type.HasValue;
+        }
+
+        [XmlElement("userLanguage")]
+        public UserLanguage? InitialUserLanguage { get; set; }
+        public bool ShouldSerializeInitialUserLanguage()
+        {
+            return InitialUserLanguage.HasValue;
         }
     }
 }
