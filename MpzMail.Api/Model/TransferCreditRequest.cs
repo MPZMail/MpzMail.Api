@@ -13,7 +13,7 @@ namespace MpzMail.Api.Model
     {
         [XmlElement("recipientID")]
         public int RecipientId { get; set; }
-        [XmlElement("crediAmt")]
+        [XmlElement("creditAmt")]
         public int Credits { get; set; }
     }
 }
