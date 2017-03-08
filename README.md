@@ -10,6 +10,8 @@ PM> Install-Package MpzMail.Api
 ```
 
 ###Example
+
+**Get Campaigns**
 ```cs
 IXmlParser xmlParser = new DefaultXmlParser();
 IHttpClient httpClient = new DefaultHttpClient();
