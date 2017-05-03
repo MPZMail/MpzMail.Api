@@ -10,6 +10,7 @@ namespace MpzMail.Api.Contract
         #region AccountFunctions
         AccountResult CreateAccount(string emailAddres, string password, string fullname, AccountOptions settings);
         BaseResult TransferCredits(int recipientId, int credits);
+        ApiKeyResult ObtainApiKey(string username, string password);
         #endregion
 
         #region Campaigns

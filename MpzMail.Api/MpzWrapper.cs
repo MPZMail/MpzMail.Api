@@ -16,6 +16,7 @@ namespace MpzMail.Api
         private string _apiKey;
         private string _baseUrl;
 
+
         public MpzWrapper(IXmlParser xmlParser, IHttpClient httpClient, string apiKey, string baseUrl)
         {
             this._httpClient = httpClient;
@@ -23,7 +24,14 @@ namespace MpzMail.Api
             this._apiKey = apiKey;
             this._baseUrl = baseUrl;
         }
-
+        public MpzWrapper(IXmlParser xmlParser, IHttpClient httpClient, string username, string password, string baseUrl)
+        {
+            this._httpClient = httpClient;
+            this._parser = xmlParser;
+            this._baseUrl = baseUrl;
+            this._apiKey = ObtainApiKey(username, password).ApiKey;
+        }
+        
         #region AccountFunctions
         public AccountResult CreateAccount(string emailAddres, string password, string fullname, AccountOptions options)
         {
@@ -91,6 +99,30 @@ namespace MpzMail.Api
             }
 
             var result = this._parser.Deserialize<BaseResult>(httpResponse.Result);
+            return result;
+        }
+
+        public ApiKeyResult ObtainApiKey(string username, string password)
+        {
+            var url = $"{this._baseUrl}/auth/";
+            var request = new ApiKeyRequest
+            {
+                Username = username,
+                Password = password
+            };
+
+            var xmlRequest = this._parser.Serialize(request);
+            var httpResponse = this._httpClient.Request(url, xmlRequest);
+            if (httpResponse.Status != HttpStatus.Successful)
+            {
+                return new ApiKeyResult
+                {
+                    Status = Status.Error,
+                    Message = "Http error"
+                };
+            }
+
+            var result = this._parser.Deserialize<ApiKeyResult>(httpResponse.Result);
             return result;
         }
         #endregion
