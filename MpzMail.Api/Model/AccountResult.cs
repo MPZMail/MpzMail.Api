@@ -13,5 +13,8 @@ namespace MpzMail.Api.Model
     {
         [XmlElement("userID")]
         public string UserId { get; set; }
+
+        [XmlElement("apiKey")]
+        public string NewApiKey { get; set; }
     }
 }
