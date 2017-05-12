@@ -379,7 +379,7 @@ namespace MpzMail.Api
             var url = $"{this._baseUrl}/campaigns/listUnsubscribers/";
             var request = new RetrieveCampaignRequest
             {
-                ApiKey = this._baseUrl,
+                ApiKey = this._apiKey,
                 CampaignId = campaignId
             };
 
