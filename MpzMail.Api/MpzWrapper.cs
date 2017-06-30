@@ -862,6 +862,7 @@ namespace MpzMail.Api
             foreach (var subscriber in subscribers)
             {
                 csv.Append("\r\n");
+
                 var subscriberToString = subscriber.ToString();
                 csv.Append(subscriberToString);
             }
