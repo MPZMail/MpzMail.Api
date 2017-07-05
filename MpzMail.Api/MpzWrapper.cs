@@ -46,11 +46,6 @@ namespace MpzMail.Api
 
             if (options != null)
             {
-                if (!string.IsNullOrEmpty(options.AgencyId))
-                {
-                    request.AgencyId = options.AgencyId;
-                }
-
                 if (options.AgencyAccount.HasValue)
                 {
                     request.AgencyAccount = options.AgencyAccount.Value;
@@ -59,6 +54,11 @@ namespace MpzMail.Api
                 if (options.Type.HasValue)
                 {
                     request.Type = options.Type.Value;
+                }
+
+                if (options.InitialUserLanguage.HasValue)
+                {
+                    request.InitialUserLanguage = options.InitialUserLanguage.Value;
                 }
             }
 

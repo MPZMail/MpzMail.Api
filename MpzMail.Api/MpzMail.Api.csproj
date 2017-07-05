@@ -140,6 +140,7 @@
     <Compile Include="Model\SubscriberUpdateRequest.cs" />
     <Compile Include="Model\UnsubscribeSubscriberRequestWithEmail.cs" />
     <Compile Include="Model\UnsubscribeSubscriberRequestWithId.cs" />
+    <Compile Include="Model\UserLanguage.cs" />
     <Compile Include="MpzWrapper.cs" />
     <Compile Include="DefaultHttpClient.cs" />
     <Compile Include="Contract\IMpzWrapper.cs" />
