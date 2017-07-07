@@ -5,7 +5,7 @@ namespace MpzMail.Api.Model
 {
     public class Subscriber
     {
-        private DateTime _dateOfBirth = DateTime.Parse("1/1/1753 13:00:00");
+        private DateTime _dateOfBirth = DateTime.Parse("1/1/1753");
 
         [XmlElement("email")]
         public string Email { get; set; }
