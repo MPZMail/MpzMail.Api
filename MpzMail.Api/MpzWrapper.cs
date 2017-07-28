@@ -856,7 +856,7 @@ namespace MpzMail.Api
         public SubscriberBulkAddResult BulkAddSubscribers(int groupId, List<Subscriber> subscribers)
         {
             var csv = new StringBuilder();
-            var firstLine = "email,firstname,lastName,companyName,houseNo,address1,address2,town,county,country,postCode,dateOfBirth,gender,customField1,customField2,customField3,customField4,customField5,customField6,customField7,customField8,customField9,customField10";
+            var firstLine = "\"email\",\"firstname\",\"lastName\",\"companyName\",\"houseNo\",\"address1\",\"address2\",\"town\",\"county\",\"country\",\"postCode\",\"dateOfBirth\",\"gender\",\"customField1\",\"customField2\",\"customField3\",\"customField4\",\"customField5\",\"customField6\",\"customField7\",\"customField8\",\"customField9\",\"customField10\"";
             csv.Append(firstLine);
             var csvSubscribersBase64Encoded = string.Empty;
             foreach (var subscriber in subscribers)
