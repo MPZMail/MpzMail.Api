@@ -27,6 +27,6 @@ namespace MpzMail.Api.Model
         [XmlElement("customField1")]
         public string CustomField { get; set; }
         [XmlElement("actionID")]
-        public int ActionId { get; set; }
+        public int Id { get; set; }
     }
 }
